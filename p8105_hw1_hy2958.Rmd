@@ -1,0 +1,18 @@
+---
+title: "p8105_hw1_hy2958"
+output: gitinstall.packages("moderndive")_document
+date: "2025-09-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup}
+library(moderndive)
+```
+data import
+```{r}
+data("early_january_weather")
+```
+
