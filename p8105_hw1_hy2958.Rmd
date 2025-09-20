@@ -11,13 +11,18 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r setup}
 library(moderndive)
 library(ggplot2)
+library(tidyverse)
 ```
+
+##problem 1
 data import
+
 ```{r}
 data("early_january_weather")
 ```
+
 ##describe data
-##View variable names and types
+
 ```{r}
 
 names(early_january_weather)
@@ -47,3 +52,28 @@ ggsave("temp_vs_time_hour.png", width = 8, height = 5, dpi = 300)
 ```
 
 It reflect that the temperature and humidity had overall increasing trend between January 1st to January 15th in 2013 in EWR.
+
+
+##problem 2
+
+create dataframe
+```{r}
+df <- data.frame(
+  normal_sample = rnorm(10),
+  logical_vector = rnorm(10) > 0,
+  character_vector = letters[1:10],
+  factor_vector = factor(rep(c("Low", "Medium", "High"), length.out = 10))
+)
+```
+
+take the mean
+```{r}
+mean_normal <- mean(pull(df, normal_sample))
+mean_logical <- mean(pull(df, logical_vector))
+mean_character <- mean(pull(df, character_vector)) #fail
+mean_factor <- mean(pull(df, factor_vector)) #fail
+```
+
+Only the numerical and logical variable's mean can be calculated. The character and factor variable's mean cannot be calculated.
+
+
